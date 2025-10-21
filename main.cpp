@@ -36,7 +36,25 @@ int main() {
 }
 
 int main_menu() {
-    int input;
-    cout << "*** GOAT MANAGER 3001 ***" << endl;
+    // Returns user input for menu; with validation
+    // Note: does not implement actual actions
     
+    int input;
+    do {
+        cout << "*** GOAT MANAGER 3001 ***" << endl;
+        cout << "[1] Add a goat" << endl;
+        cout << "[2] Delete a goat" << endl;
+        cout << "[3] List goats" << endl;
+        cout << "[4] Quit" << endl;
+        cout << "Choice --> ";
+        cin >> input;
+
+        // Validation
+        if (input <= 0 || input >= 5) {
+            cout << "Please enter 1-4." << endl;
+        }
+
+    } while (input <= 0 || input >= 5);
+
+    return input;
 }
