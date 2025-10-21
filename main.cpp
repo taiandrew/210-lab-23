@@ -35,3 +35,8 @@ int main() {
     return 0;
 }
 
+int main_menu() {
+    int input;
+    cout << "*** GOAT MANAGER 3001 ***" << endl;
+    
+}

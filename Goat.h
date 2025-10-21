@@ -12,7 +12,10 @@ private:
     string color;
 public: 
     Goat()                          { name = ""; age = 0; color = ""; }
-    // write three more constructors
+    // Parameterized constructors
+    Goat(string name)                           { this->name = name; age = 0; color = ""; }
+    Goat(string name, int age)                  { this->name = name; this->age = age; color = ""; }
+    Goat(string name, int age, string color)    { this->name = name; this->age = age; this->color = color; }
 
     // setters and getters
     void set_name(string n)         { name = n; };
