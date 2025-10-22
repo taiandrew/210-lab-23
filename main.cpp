@@ -68,6 +68,8 @@ void add_goat(list<Goat> &trip, string names[], string colors[]) {
     int age = rand() % (MAX_AGE + 1); // age 0 to MAX_AGE
     string color = colors[rand() % SZ_COLORS];
     trip.push_back(Goat(name, age, color));
+
+    cout << "Added goat: " << name << " (" << age << ", " << color << ")\n" << endl;
 }
 
 void display_trip(list<Goat> trip) {
@@ -94,7 +96,7 @@ int select_goat(list<Goat> trip) {
     display_trip(trip);
     int input;
     do {
-        cout << "Select goat to delete: ";
+        cout << "Select goat: ";
         cin >> input;
 
         // Validation
@@ -111,6 +113,7 @@ void delete_goat(list<Goat> &trip) {
     // Deletes a goat from the trip via iterator; calls select_goat()
     // Arg: reference to list of goats
 
+    cout << "'Deleting' goat..." << endl;
     int index = select_goat(trip);
     list<Goat>::iterator it = trip.begin();
     for (int i = 0; i < index; i++) {
