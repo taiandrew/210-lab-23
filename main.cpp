@@ -32,10 +32,28 @@ int main() {
     while (fin1 >> colors[i++]);
     fin1.close();
 
+    // menu loop
+    list<Goat> trip;
+    int choice;
+    while (true) {
 
+        choice = main_menu();
 
-
-    return 0;
+        switch (choice) {
+            case 1:
+                add_goat(trip, names, colors);
+                break;
+            case 2:
+                delete_goat(trip);
+                break;
+            case 3:
+                display_trip(trip);
+                break;
+            case 4:
+                cout << "Goodbye!" << endl;
+                return 0;
+        }
+    }
 }
 
 void add_goat(list<Goat> &trip, string names[], string colors[]) {
