@@ -35,10 +35,9 @@ int main() {
     // menu loop
     list<Goat> trip;
     int choice;
+
     while (true) {
-
         choice = main_menu();
-
         switch (choice) {
             case 1:
                 add_goat(trip, names, colors);
@@ -50,7 +49,6 @@ int main() {
                 display_trip(trip);
                 break;
             case 4:
-                cout << "Goodbye!" << endl;
                 return 0;
         }
     }
@@ -78,13 +76,32 @@ void display_trip(list<Goat> trip) {
     for (it = trip.begin(); it != trip.end(); ++it) {
         cout << "[" << index << "] ";
         cout << it->get_name() << " ";
-        cout << "(" << it->get_age() << ",";
-        cout << it->get_color() << ") " << endl;
+        cout << "(" << it->get_age() << ", ";
+        cout << it->get_color() << ")" << endl;
         index++;
     }
+    cout << endl;
 }
 
 int select_goat(list<Goat> &trip) {
+    // Displays goats and prompts user to select one
+    // Arg: reference to list of goats
+    // Returns: index of selected goat (0 indexed)
+
+    display_trip(trip);
+    int input;
+    do {
+        cout << "Select goat to delete: ";
+        cin >> input;
+
+        // Validation
+        if (input < 0 || input >= trip.size()) {
+            cout << "Please enter a valid goat." << endl;
+        }
+
+    } while (input < 0 || input >= trip.size());
+
+    return input;
 
 }
 
@@ -105,6 +122,8 @@ int main_menu() {
         cout << "[4] Quit" << endl;
         cout << "Choice --> ";
         cin >> input;
+        cin.ignore();
+        cout << endl;
 
         // Validation
         if (input <= 0 || input >= 5) {
