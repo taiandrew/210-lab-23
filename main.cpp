@@ -10,12 +10,14 @@ using namespace std;
 
 const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
 
+// FN PROTOTYPES
 int select_goat(list<Goat> trip);
 void delete_goat(list<Goat> &trip);
 void add_goat(list<Goat> &trip, string [], string []);
 void display_trip(list<Goat> trip);
 int main_menu();
 
+// MAIN
 int main() {
     srand(time(0));
     bool again;
@@ -54,6 +56,7 @@ int main() {
     }
 }
 
+// PROGRAMMER FUNCTIONS
 void add_goat(list<Goat> &trip, string names[], string colors[]) {
     // Adds a goat with random traits
     // Args:
