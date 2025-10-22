@@ -51,6 +51,29 @@ void add_goat(list<Goat> &trip, string names[], string colors[]) {
     trip.push_back(Goat(name, age, color));
 }
 
+void display_trip(list<Goat> trip) {
+    // Displays goats in the trip; numbered "index"
+    // Arg: reference to list of goats
+
+    list<Goat>::iterator it;
+    int index = 0;
+    for (it = trip.begin(); it != trip.end(); ++it) {
+        cout << "[" << index << "] ";
+        cout << it->get_name() << " ";
+        cout << "(" << it->get_age() << ",";
+        cout << it->get_color() << ") " << endl;
+        index++;
+    }
+}
+
+int select_goat(list<Goat> &trip) {
+
+}
+
+void delete_goat(list<Goat> &trip) {
+
+}
+
 int main_menu() {
     // Returns user input for menu; with validation
     // Note: does not implement actual actions
