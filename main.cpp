@@ -83,9 +83,9 @@ void display_trip(list<Goat> trip) {
     cout << endl;
 }
 
-int select_goat(list<Goat> &trip) {
+int select_goat(list<Goat> trip) {
     // Displays goats and prompts user to select one
-    // Arg: reference to list of goats
+    // Arg: list of goats
     // Returns: index of selected goat (0 indexed)
 
     display_trip(trip);
@@ -102,11 +102,18 @@ int select_goat(list<Goat> &trip) {
     } while (input < 0 || input >= trip.size());
 
     return input;
-
 }
 
 void delete_goat(list<Goat> &trip) {
+    // Deletes a goat from the trip via iterator; calls select_goat()
+    // Arg: reference to list of goats
 
+    int index = select_goat(trip);
+    list<Goat>::iterator it = trip.begin();
+    for (int i = 0; i < index; i++) {
+        ++it;
+    }
+    trip.erase(it);
 }
 
 int main_menu() {
