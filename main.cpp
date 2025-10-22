@@ -1,3 +1,6 @@
+// COMSC 210 | Oct 21 2025 | Lab 23
+// IDE: VS Code
+
 #include <iostream>
 #include <fstream>
 #include <iomanip>
@@ -35,10 +38,23 @@ int main() {
     return 0;
 }
 
+void add_goat(list<Goat> &trip, string names[], string colors[]) {
+    // Adds a goat with random traits
+    // Args:
+    //   trip - reference to list of goats
+    //   names - array of possible names
+    //   colors - array of possible colors
+
+    string name = names[rand() % SZ_NAMES];
+    int age = rand() % (MAX_AGE + 1); // age 0 to MAX_AGE
+    string color = colors[rand() % SZ_COLORS];
+    trip.push_back(Goat(name, age, color));
+}
+
 int main_menu() {
     // Returns user input for menu; with validation
     // Note: does not implement actual actions
-    
+
     int input;
     do {
         cout << "*** GOAT MANAGER 3001 ***" << endl;
@@ -58,3 +74,4 @@ int main_menu() {
 
     return input;
 }
+
